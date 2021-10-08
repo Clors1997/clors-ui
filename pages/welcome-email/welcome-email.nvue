@@ -75,7 +75,7 @@ export default {
     uni.preloadPage({
       url: '../login/login',
     })
-    this.debounceEmailChange = this.tools.debounce(this.emailChange, 500)
+    this.debounceEmailChange = this.$store.tools.debounce(this.emailChange, 500)
   },
   methods: {
     emailChange() {

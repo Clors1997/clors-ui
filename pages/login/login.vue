@@ -65,15 +65,16 @@
 </template>
 
 <script>
-import readyShow from '@/common/mixin/readyShow.js'
+import global from "@/common/mixin/global.js"
+
 export default {
-  mixins: [readyShow],
+  mixins: [global],
   data() {
     return {}
   },
   methods: {
     toHome() {
-      uni.redirectTo({
+      uni.switchTab({
         url: "../home/home"
       })
     }

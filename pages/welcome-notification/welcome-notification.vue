@@ -140,8 +140,10 @@
 
 <script>
 import readyShow from "@/common/mixin/readyShow.js"
+import global from "@/common/mixin/global.js"
+
 export default {
-  mixins: [ readyShow ],
+  mixins: [ readyShow, global ],
   data() {
     return {
     }

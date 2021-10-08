@@ -2,7 +2,6 @@
   <f-page :bg="false">
     <scroll-view
       @scroll="pageScroll"
-      style="touch-action:none"
       class="flex-column align-center w-100 position-relative"
       scroll-y="true"
       :style="getBox('window')"
@@ -58,8 +57,8 @@
       </view>
       <!-- top -->
       <view
-        class="w-100 flex-column pt-8 transition-opacity"
-        style="padding-left: 100rpx;padding-right: 100rpx;"
+        class="w-100 flex-column transition-opacity"
+        style="padding-left: 100rpx;padding-right: 100rpx;padding-top: 100rpx;"
         :style="getBox('649rpx-!status-!62rpx') + 'opacity: ' + topOc + ';'"
       >
         <text class="font-h" :class="getColor('text-dark')"
@@ -591,6 +590,8 @@
       "
       :class="getColor('bg-red')"
     ></view>
+    
+    <f-tabbar ref="tabbar"></f-tabbar>
   </f-page>
 </template>
 
@@ -598,7 +599,10 @@
 // #ifdef APP-PLUS
 const dom = uni.requireNativePlugin('dom')
 // #endif
+import global from "@/common/mixin/global.js"
+
 export default {
+  mixins: [ global ],
   data() {
     return {
       headerTop: 40,
@@ -612,9 +616,32 @@ export default {
     }
   },
   onLoad() {
+    uni.hideTabBar({})
+    this.getExample()
     this.topScrollRange = this.getBox('649rpx-!status-!120rpx', 0)
   },
+  onShow() {
+    this.$nextTick(() => {
+      console.log('home')
+      this.$refs.tabbar.changeCurrent('home')
+    })
+  },
+  onPullDownRefresh() {
+    console.log('refresh');
+    setTimeout(function() {
+      uni.stopPullDownRefresh();
+    }, 1000);
+  },
   methods: {
+    getExample() {
+      this.$store.api_exmaple.r_example()
+        .then(res => {
+          console.log(res, '请求成功')
+        })
+        .catch(err => {
+          console.log(err, '请求错误或者类型错误')
+        })
+    },
     bookOne(ref) {
       if (this.booked || this.booking) {
       } else {
@@ -646,6 +673,7 @@ export default {
       }
     },
     pageScroll(e) {
+      console.log(e)
       let range = e.detail.scrollTop / this.topScrollRange
       if (range <= 1) {
         this.topOc = 1 - range

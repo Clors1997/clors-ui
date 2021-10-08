@@ -49,7 +49,8 @@
 </template>
 
 <script>
-import readyShow from '@/common/mixin/readyShow.js'
+import global from "@/common/mixin/global.js"
+
 const rule = [
   {
     name: 'email',
@@ -61,7 +62,7 @@ const rule = [
   },
 ]
 export default {
-  mixins: [readyShow],
+  mixins: [global],
   data() {
     return {
       info: {
@@ -74,7 +75,7 @@ export default {
     uni.preloadPage({
       url: '../login/login',
     })
-    this.debounceEmailChange = this.tools.debounce(this.emailChange, 500)
+    this.debounceEmailChange = this.$store.tools.debounce(this.emailChange, 500)
   },
   methods: {
     emailChange() {

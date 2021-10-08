@@ -45,8 +45,11 @@
         ></view>
       </view>
       <view class="flex-column align-center">
-        <f-button text="GET STARTED" @buttonClicked="to('welcome-notification')"></f-button>
-      
+        <f-button
+          text="GET STARTED"
+          @buttonClicked="to('welcome-notification')"
+        ></f-button>
+
         <view class="flex-row mt-4">
           <text class="font-small" :class="getColor('text-light')"
             >Already have an account?</text
@@ -56,23 +59,33 @@
           >
         </view>
       </view>
-      
+
       <view></view>
     </view>
   </f-page>
 </template>
 
 <script>
+import global from "@/common/mixin/global.js"
+
 export default {
+  mixins: [ global ],
   data() {
     return {
       current: 0,
     }
   },
+  onLoad() {
+    uni.preloadPage({
+      url: '../welcome-notification/welcome-notification',
+    })
+  },
+  onReady() {
+  },
   methods: {
     changeCurrent(e) {
       this.current = e.detail.current
-    },
+    }
   },
 }
 </script>

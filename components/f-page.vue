@@ -1,7 +1,8 @@
 <template>
   <view class="flex-column align-center w-100"
     :class="$store.getColor('bg-page')"
-    :style="$store.getBox('window')">
+    :style="$store.getBox('window')"
+  >
     <!-- 设置层级背景 -->
     <view v-if="bg"
       class="w-100 position-absolute position-top"

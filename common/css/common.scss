@@ -1,0 +1,113 @@
+/* 自定义动画类引入 */
+@import "./transition.scss";
+
+/* 項目全局樣式 */
+
+/* icon */
+/* #ifndef APP-NVUE */
+@font-face {
+  font-family: 'ant-icon';
+  src: url('~@/static/icon/iconfont.ttf');
+}
+/* #endif */
+/* #ifndef APP-NVUE */
+/* scroll-view */
+.scroll-row{ width: 100%;white-space: nowrap; }
+.scroll-row-item{ display: inline-block!important; }
+/* #endif */
+
+.ant-icon {
+  font-family: ant-icon;
+  text-decoration: none;
+  text-align: center;
+}
+
+/* 请根据设计图进行文字类型定义 */
+.font-h {
+  font-size: 45rpx;
+  line-height: 61rpx;
+}
+.font-lg {
+  font-size: 38rpx;
+  line-height: 51rpx;
+}
+.font-md {
+  font-size: 32rpx;
+  line-height: 44rpx;
+}
+.font {
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
+.font-small {
+  font-size: 24rpx;
+  line-height: 36rpx;
+}
+
+.font-s {
+  font-size: 20rpx;
+  line-height: 36rpx;
+}
+
+.font-ss {
+  font-size: 18rpx;
+  line-height: 20rpx;
+}
+
+.font-sss {
+  font-size: 14rpx;
+  line-height: 18rpx;
+}
+/* .font-lg {
+  font-size: 36rpx;
+  line-height: 48rpx;
+}
+
+
+
+
+.font-smaller {
+  font-size: 20rpx;
+  line-height: 28rpx;
+} */
+
+.icon-smaller {
+  font-size: 30rpx;
+}
+
+.icon-small {
+  font-size: 40rpx;
+}
+
+.icon-normal {
+  font-size: 50rpx;
+}
+
+.icon-md {
+  font-size: 60rpx;
+}
+
+.icon-lg {
+  font-size: 80rpx;
+}
+
+.header-icon {
+  font-size: 24px;
+  padding-top: 3px;
+}
+
+.header-title {
+  font-size: 16px;
+}
+
+.rounded-38 {
+  border-radius: 38rpx;
+}
+
+.rounded-24 {
+  border-radius: 24rpx;
+}
+
+.border-2 {
+  border: 2rpx;
+}

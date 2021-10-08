@@ -1,0 +1,1 @@
+<view class="{{['flex-column','align-center','w-100','data-v-731fccde',$root.g0]}}" style="{{$root.s0}}"><view class="{{['w-100','position-absolute','position-top','data-v-731fccde',$root.g1]}}" style="{{('height:'+$root.g2*2/3+'px;')}}"></view><block wx:if="{{show_page}}"><slot></slot></block></view>

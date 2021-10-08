@@ -1,0 +1,42 @@
+.transition-opacity-transform {
+  transition-property: opacity, transform;
+}
+
+.transition-width-bg {
+  transition-property: width, background-color;
+}
+
+.transition-top-left {
+  transition-property: opacity, top, left;
+}
+
+.transformx--10 {
+  transform: translateX(-10%);
+}
+.transformx--20 {
+  transform: translateX(-20%);
+}
+.transformx--30 {
+  transform: translateX(-30%);
+}
+.transformx-10 {
+  transform: translateX(10%);
+}
+.transformx-20 {
+  transform: translateX(20%);
+}
+.transformx-30 {
+  transform: translateX(30%);
+}
+.transformx-0 {
+  transform: translateX(0%);
+}
+.transformy--50 {
+  transform: translateY(-50%);
+}
+.transformy--100 {
+  transform: translateY(-100%);
+}
+.transformy-0 {
+  transform: translateY(0%);
+}

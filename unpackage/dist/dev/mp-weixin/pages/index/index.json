@@ -1,0 +1,7 @@
+{
+  "disableScroll": true,
+  "usingComponents": {
+    "f-page": "/components/f-page",
+    "f-navbar": "/components/f-navbar"
+  }
+}

@@ -1,0 +1,19 @@
+/* 夜间主题 */
+$theme: ( 0: 'dark');
+
+@each $k, $v in $theme {
+  .bg-page-#{$v} {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  .bg-page-top-#{$v} {
+    background-image:linear-gradient(to top, rgba(67, 216, 205, 0.01) 2%, rgba(47, 185, 202, 0.3) 100%);
+  }
+  .bg-tabbar-#{$v} {
+    background-color: rgba(153, 153, 153, 1);
+  }
+  
+  /* 文字颜色 */
+  .text-white-#{$v} {
+    color: rgba(255, 255, 255, 0.8);
+  }
+}

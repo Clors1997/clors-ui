@@ -1,0 +1,41 @@
+{
+    // "pages": [
+    // 	{
+    // 		"path": "pages/index/index",
+    // 		"style": {
+    // 			"navigationBarTitleText": "uni-app"
+    // 		}
+    // 	}
+    // ],
+    "easycom" : {
+        "autoscan" : true,
+        "custom" : {
+            "^f-(.*)" : "@/components/f-$1.vue"
+        }
+    },
+    "globalStyle" : {
+        "navigationBarTextStyle" : "black",
+        "pageOrientation" : "portrait",
+        "animationType" : "pop-in",
+        "animationDuration" : "500",
+        "app-plus" : {
+            "titleNView" : false
+        }
+    },
+    "tabBar" : {
+        "list" : [
+            {
+                "pagePath" : "pages/home/home"
+            },
+            {
+                "pagePath" : "pages/home/home2"
+            },
+            {
+                "pagePath" : "pages/home/home3"
+            },
+            {
+                "pagePath" : "pages/home/home4"
+            }
+        ]
+    }
+}

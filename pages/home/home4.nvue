@@ -1,0 +1,681 @@
+<template>
+  <f-page :bg="false">
+    <scroll-view
+      @scroll="pageScroll"
+      class="flex-column align-center w-100 position-relative"
+      scroll-y="true"
+      :style="getBox('window')"
+    >
+      <!-- top bg -->
+      <view
+        class="w-100 position-absolute position-top"
+        style="height: 649rpx;border-bottom-left-radius: 62rpx;border-bottom-right-radius: 62rpx;"
+        :class="getColor('bg-gray')"
+      ></view>
+      <view :style="getBox('status-62rpx')"></view>
+      <view
+        class="left-0 position-fixed top-0"
+      >
+        <view class="position-absolute position-full"
+          style="border-bottom-left-radius: 62rpx;border-bottom-right-radius: 62rpx;"
+          :class="getColor('bg-gray')"
+          :style="'opacity: ' + (1-topOc) + ';'"
+        ></view>
+        <!-- status -->
+        <view class="w-100" :style="getBox('status')"></view>
+        <!-- menu -->
+        <view
+          class="w-100 flex-row align-center p-6"
+          :style="getBox('62rpx')"
+        >
+          <view class="flex-center bg" :style="getBox('62rpx', 2)">
+            <image
+              src="/static/app/home_menu.png"
+              :style="getBox('27rpx', 2)"
+            ></image>
+          </view>
+        </view>
+      </view>
+      <!-- header -->
+      <view
+        ref="header"
+        class="position-fixed rounded-circle"
+        style="right: 60rpx;"
+        :style="
+          'top: ' +
+            getBox('status-' + headerTop + 'rpx', 0) +
+            'px;width: ' +
+            headerSize +
+            'rpx;height: ' +
+            headerSize +
+            'rpx;'
+        "
+        :class="getColor('bg-white')"
+      >
+        
+        <view v-if="header_book" class="rounded-circle position-absolute top-0 right-0" :class="getColor('bg-red')" :style="getBox('20rpx', 2)"></view>
+      </view>
+      <!-- top -->
+      <view
+        class="w-100 flex-column transition-opacity"
+        style="padding-left: 100rpx;padding-right: 100rpx;padding-top: 100rpx;"
+        :style="getBox('649rpx-!status-!62rpx') + 'opacity: ' + topOc + ';'"
+      >
+        <text class="font-h" :class="getColor('text-dark')"
+          >Good Evening4</text
+        >
+        <text class="font-h" :class="getColor('text-dark')">Alexis</text>
+        <text class="font-small mt-3" :class="getColor('text-main-2')"
+          >Your target for today is to keep positive mindset</text
+        >
+        <text class="font-small" :class="getColor('text-main-2')"
+          >and smile to everyone you meet.</text
+        >
+        <view class="flex-row align-center mt-6">
+          <f-button-sm text="more details" bgColor="bg-dark"></f-button-sm>
+          <f-button-sm
+            class="ml-4"
+            text="view your profile"
+            bgColor="bg-main-2"
+          ></f-button-sm>
+        </view>
+      </view>
+
+      <view class="w-100 px-6 mt-4">
+        <text class="font-small" :class="getColor('text-dark')"
+          >What are you doing today?</text
+        >
+      </view>
+      <view class="w-100 px-6 mt-6">
+        <view
+          class="flex-row overflow-hidden border-bottom"
+          style="width: 627rpx;height: 145rpx;"
+          :class="getColor('border-gray')"
+        >
+          <image
+            src="/static/app/brain@2x.png"
+            :style="getBox('71rpx', 2)"
+          ></image>
+          <view class="flex-column flex-1 overflow-hidden ml-4">
+            <text
+              class="font-ss text-ellipsis"
+              style="opacity: 0.34;"
+              :class="getColor('text-dark')"
+              >Doctors</text
+            >
+            <text
+              class="font-small text-ellipsis"
+              :class="getColor('text-dark')"
+              >Brain Checkout</text
+            >
+            <text
+              class="font-s text-ellipsis"
+              style="opacity: 0.34;"
+              :class="getColor('text-dark')"
+              >Have an appointment today</text
+            >
+          </view>
+          <f-button-sm
+            text="View"
+            boxClass="p-3"
+            textSize="font-s"
+            bgColor="bg-orange"
+          ></f-button-sm>
+        </view>
+        <view
+          class="flex-row overflow-hidden border-bottom mt-4"
+          style="width: 627rpx;height: 145rpx;"
+          :class="getColor('border-gray')"
+        >
+          <image
+            src="/static/app/brain@2x(1).png"
+            :style="getBox('71rpx', 2)"
+          ></image>
+          <view class="flex-column flex-1 overflow-hidden ml-4">
+            <text
+              class="font-ss text-ellipsis"
+              style="opacity: 0.34;"
+              :class="getColor('text-dark')"
+              >Pharmacy</text
+            >
+            <text
+              class="font-small text-ellipsis"
+              :class="getColor('text-dark')"
+              >Purchase Prescription</text
+            >
+            <text
+              class="font-s text-ellipsis"
+              style="opacity: 0.34;"
+              :class="getColor('text-dark')"
+              >Don't forget to bring the list with you</text
+            >
+          </view>
+          <f-button-sm
+            text="Set"
+            boxClass="p-3"
+            textSize="font-s"
+            bgColor="bg-light"
+          ></f-button-sm>
+        </view>
+      </view>
+
+      <view class="w-100 px-6 mt-6">
+        <text class="font-small" :class="getColor('text-dark')"
+          >Visit a Specialists</text
+        >
+      </view>
+
+      <scroll-view
+        :show-scrollbar="false"
+        class="w-100 flex-row align-center"
+        scroll-x="true"
+      >
+        <view style="width: 60rpx;"></view>
+        <view
+          class="flex-row align-center mr-4 rounded-24 px-2 overflow-hidden mt-4 shadow-normal"
+          style="width: 565rpx;height: 159rpx;"
+          :class="getColor('bg-white')"
+        >
+          <image
+            class="rounded-24"
+            src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic3.zhimg.com%2Fv2-02c4d251bb886f660b0b7ca4ea805f32_b.jpg&refer=http%3A%2F%2Fpic3.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1636013514&t=0605d2a43abe1886667d2bda3d4c3e72"
+            :style="getBox('112rpx', 2)"
+          ></image>
+          <view class="flex-column flex-1 overflow-hidden ml-2">
+            <text
+              class="font-ss text-ellipsis"
+              style="opacity: 0.34;"
+              :class="getColor('text-dark')"
+              >Physician</text
+            >
+            <text
+              class="font-small text-ellipsis"
+              :class="getColor('text-dark')"
+              >Svyatoslav Taushev</text
+            >
+            <image
+              class="mt-1"
+              src="/static/app/start.png"
+              style="width: 112rpx;height: 16rpx"
+            ></image>
+          </view>
+          <f-button-sm
+            ref="btn1"
+            @buttonClicked="bookOne('btn1')"
+            :text="booking ? '' : booked ? 'BOOKED' : 'BOOK'"
+            boxClass="p-3 transition-width-bg duration-3"
+            :boxInStyle="booking ? 'width: 50rpx;' : 'width: 130rpx;'"
+            textSize="font-s"
+            :bgColor="booked ? 'bg-gray' : 'bg-light'"
+          ></f-button-sm>
+        </view>
+        <view
+          class="flex-row align-center rounded-24 px-2 overflow-hidden mt-4 shadow-normal"
+          style="width: 565rpx;height: 159rpx;"
+          :class="getColor('bg-white')"
+        >
+          <image
+            class="rounded-24"
+            src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202004%2F06%2F20200406171329_xmccd.thumb.1000_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1636013566&t=1c2125070daf8d2fd9c74aa16eb3fb95"
+            :style="getBox('112rpx', 2)"
+          ></image>
+          <view class="flex-column flex-1 overflow-hidden ml-2">
+            <text
+              class="font-ss text-ellipsis"
+              style="opacity: 0.34;"
+              :class="getColor('text-dark')"
+              >Physician</text
+            >
+            <text
+              class="font-small text-ellipsis"
+              :class="getColor('text-dark')"
+              >Svyatoslav Taushev</text
+            >
+            <image
+              class="mt-1"
+              src="/static/app/start.png"
+              style="width: 112rpx;height: 16rpx"
+            ></image>
+          </view>
+          <f-button-sm
+            text="BOOK"
+            boxClass="p-3"
+            textSize="font-s"
+            bgColor="bg-light"
+          ></f-button-sm>
+        </view>
+        <view style="width: 60rpx;"></view>
+      </scroll-view>
+
+      <view class="w-100 px-6 mt-4">
+        <text class="font-small" :class="getColor('text-dark')"
+          >What are you doing today?</text
+        >
+      </view>
+
+      <view class="w-100 px-6 mt-6">
+        <view
+          class="flex-row overflow-hidden border-bottom"
+          style="width: 627rpx;height: 145rpx;"
+          :class="getColor('border-gray')"
+        >
+          <image
+            src="/static/app/brain@2x.png"
+            :style="getBox('71rpx', 2)"
+          ></image>
+          <view class="flex-column flex-1 overflow-hidden ml-4">
+            <text
+              class="font-ss text-ellipsis"
+              style="opacity: 0.34;"
+              :class="getColor('text-dark')"
+              >Doctors</text
+            >
+            <text
+              class="font-small text-ellipsis"
+              :class="getColor('text-dark')"
+              >Brain Checkout</text
+            >
+            <text
+              class="font-s text-ellipsis"
+              style="opacity: 0.34;"
+              :class="getColor('text-dark')"
+              >Have an appointment today</text
+            >
+          </view>
+          <f-button-sm
+            text="View"
+            boxClass="p-3"
+            textSize="font-s"
+            bgColor="bg-orange"
+          ></f-button-sm>
+        </view>
+        <view
+          class="flex-row overflow-hidden border-bottom mt-4"
+          style="width: 627rpx;height: 145rpx;"
+          :class="getColor('border-gray')"
+        >
+          <image
+            src="/static/app/brain@2x(1).png"
+            :style="getBox('71rpx', 2)"
+          ></image>
+          <view class="flex-column flex-1 overflow-hidden ml-4">
+            <text
+              class="font-ss text-ellipsis"
+              style="opacity: 0.34;"
+              :class="getColor('text-dark')"
+              >Pharmacy</text
+            >
+            <text
+              class="font-small text-ellipsis"
+              :class="getColor('text-dark')"
+              >Purchase Prescription</text
+            >
+            <text
+              class="font-s text-ellipsis"
+              style="opacity: 0.34;"
+              :class="getColor('text-dark')"
+              >Don't forget to bring the list with you</text
+            >
+          </view>
+          <f-button-sm
+            text="Set"
+            boxClass="p-3"
+            textSize="font-s"
+            bgColor="bg-light"
+          ></f-button-sm>
+        </view>
+      </view>
+
+      <view class="w-100 px-6 mt-6">
+        <text class="font-small" :class="getColor('text-dark')"
+          >Visit a Specialists</text
+        >
+      </view>
+
+      <scroll-view
+        :show-scrollbar="false"
+        class="w-100 flex-row align-center"
+        scroll-x="true"
+      >
+        <view style="width: 60rpx;"></view>
+        <view
+          class="flex-row align-center mr-4 rounded-24 px-2 overflow-hidden mt-4 shadow-normal"
+          style="width: 565rpx;height: 159rpx;"
+          :class="getColor('bg-white')"
+        >
+          <image
+            class="rounded-24"
+            src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic3.zhimg.com%2Fv2-02c4d251bb886f660b0b7ca4ea805f32_b.jpg&refer=http%3A%2F%2Fpic3.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1636013514&t=0605d2a43abe1886667d2bda3d4c3e72"
+            :style="getBox('112rpx', 2)"
+          ></image>
+          <view class="flex-column flex-1 overflow-hidden ml-2">
+            <text
+              class="font-ss text-ellipsis"
+              style="opacity: 0.34;"
+              :class="getColor('text-dark')"
+              >Physician</text
+            >
+            <text
+              class="font-small text-ellipsis"
+              :class="getColor('text-dark')"
+              >Svyatoslav Taushev</text
+            >
+            <image
+              class="mt-1"
+              src="/static/app/start.png"
+              style="width: 112rpx;height: 16rpx"
+            ></image>
+          </view>
+          <f-button-sm
+            text="BOOK"
+            boxClass="p-3"
+            textSize="font-s"
+            bgColor="bg-light"
+          ></f-button-sm>
+        </view>
+        <view
+          class="flex-row align-center rounded-24 px-2 overflow-hidden mt-4 shadow-normal"
+          style="width: 565rpx;height: 159rpx;"
+          :class="getColor('bg-white')"
+        >
+          <image
+            class="rounded-24"
+            src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202004%2F06%2F20200406171329_xmccd.thumb.1000_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1636013566&t=1c2125070daf8d2fd9c74aa16eb3fb95"
+            :style="getBox('112rpx', 2)"
+          ></image>
+          <view class="flex-column flex-1 overflow-hidden ml-2">
+            <text
+              class="font-ss text-ellipsis"
+              style="opacity: 0.34;"
+              :class="getColor('text-dark')"
+              >Physician</text
+            >
+            <text
+              class="font-small text-ellipsis"
+              :class="getColor('text-dark')"
+              >Svyatoslav Taushev</text
+            >
+            <image
+              class="mt-1"
+              src="/static/app/start.png"
+              style="width: 112rpx;height: 16rpx"
+            ></image>
+          </view>
+          <f-button-sm
+            text="BOOK"
+            boxClass="p-3"
+            textSize="font-s"
+            bgColor="bg-light"
+          ></f-button-sm>
+        </view>
+        <view style="width: 60rpx;"></view>
+      </scroll-view>
+
+      <view class="w-100 px-6 mt-4">
+        <text class="font-small" :class="getColor('text-dark')"
+          >What are you doing today?</text
+        >
+      </view>
+
+      <view class="w-100 px-6 mt-6">
+        <view
+          class="flex-row overflow-hidden border-bottom"
+          style="width: 627rpx;height: 145rpx;"
+          :class="getColor('border-gray')"
+        >
+          <image
+            src="/static/app/brain@2x.png"
+            :style="getBox('71rpx', 2)"
+          ></image>
+          <view class="flex-column flex-1 overflow-hidden ml-4">
+            <text
+              class="font-ss text-ellipsis"
+              style="opacity: 0.34;"
+              :class="getColor('text-dark')"
+              >Doctors</text
+            >
+            <text
+              class="font-small text-ellipsis"
+              :class="getColor('text-dark')"
+              >Brain Checkout</text
+            >
+            <text
+              class="font-s text-ellipsis"
+              style="opacity: 0.34;"
+              :class="getColor('text-dark')"
+              >Have an appointment today</text
+            >
+          </view>
+          <f-button-sm
+            text="View"
+            boxClass="p-3"
+            textSize="font-s"
+            bgColor="bg-orange"
+          ></f-button-sm>
+        </view>
+        <view
+          class="flex-row overflow-hidden border-bottom mt-4"
+          style="width: 627rpx;height: 145rpx;"
+          :class="getColor('border-gray')"
+        >
+          <image
+            src="/static/app/brain@2x(1).png"
+            :style="getBox('71rpx', 2)"
+          ></image>
+          <view class="flex-column flex-1 overflow-hidden ml-4">
+            <text
+              class="font-ss text-ellipsis"
+              style="opacity: 0.34;"
+              :class="getColor('text-dark')"
+              >Pharmacy</text
+            >
+            <text
+              class="font-small text-ellipsis"
+              :class="getColor('text-dark')"
+              >Purchase Prescription</text
+            >
+            <text
+              class="font-s text-ellipsis"
+              style="opacity: 0.34;"
+              :class="getColor('text-dark')"
+              >Don't forget to bring the list with you</text
+            >
+          </view>
+          <f-button-sm
+            text="Set"
+            boxClass="p-3"
+            textSize="font-s"
+            bgColor="bg-light"
+          ></f-button-sm>
+        </view>
+      </view>
+
+      <view class="w-100 px-6 mt-6">
+        <text class="font-small" :class="getColor('text-dark')"
+          >Visit a Specialists</text
+        >
+      </view>
+
+      <scroll-view
+        :show-scrollbar="false"
+        class="w-100 flex-row align-center"
+        scroll-x="true"
+      >
+        <view style="width: 60rpx;"></view>
+        <view
+          class="flex-row align-center mr-4 rounded-24 px-2 overflow-hidden mt-4 shadow-normal"
+          style="width: 565rpx;height: 159rpx;"
+          :class="getColor('bg-white')"
+        >
+          <image
+            class="rounded-24"
+            src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic3.zhimg.com%2Fv2-02c4d251bb886f660b0b7ca4ea805f32_b.jpg&refer=http%3A%2F%2Fpic3.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1636013514&t=0605d2a43abe1886667d2bda3d4c3e72"
+            :style="getBox('112rpx', 2)"
+          ></image>
+          <view class="flex-column flex-1 overflow-hidden ml-2">
+            <text
+              class="font-ss text-ellipsis"
+              style="opacity: 0.34;"
+              :class="getColor('text-dark')"
+              >Physician</text
+            >
+            <text
+              class="font-small text-ellipsis"
+              :class="getColor('text-dark')"
+              >Svyatoslav Taushev</text
+            >
+            <image
+              class="mt-1"
+              src="/static/app/start.png"
+              style="width: 112rpx;height: 16rpx"
+            ></image>
+          </view>
+          <f-button-sm
+            text="BOOK"
+            boxClass="p-3"
+            textSize="font-s"
+            bgColor="bg-light"
+          ></f-button-sm>
+        </view>
+        <view
+          class="flex-row align-center rounded-24 px-2 overflow-hidden mt-4 shadow-normal"
+          style="width: 565rpx;height: 159rpx;"
+          :class="getColor('bg-white')"
+        >
+          <image
+            class="rounded-24"
+            src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202004%2F06%2F20200406171329_xmccd.thumb.1000_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1636013566&t=1c2125070daf8d2fd9c74aa16eb3fb95"
+            :style="getBox('112rpx', 2)"
+          ></image>
+          <view class="flex-column flex-1 overflow-hidden ml-2">
+            <text
+              class="font-ss text-ellipsis"
+              style="opacity: 0.34;"
+              :class="getColor('text-dark')"
+              >Physician</text
+            >
+            <text
+              class="font-small text-ellipsis"
+              :class="getColor('text-dark')"
+              >Svyatoslav Taushev</text
+            >
+            <image
+              class="mt-1"
+              src="/static/app/start.png"
+              style="width: 112rpx;height: 16rpx"
+            ></image>
+          </view>
+          <f-button-sm
+            text="BOOK"
+            boxClass="p-3"
+            textSize="font-s"
+            bgColor="bg-light"
+          ></f-button-sm>
+        </view>
+        <view style="width: 60rpx;"></view>
+      </scroll-view>
+    </scroll-view>
+    <view
+      class="position-fixed rounded-circle transition-top-left duration-9"
+      v-for="(item, key) in a_point"
+      :key="'point'+key"
+      :style="
+        getBox('20rpx', 2) +
+          'top: ' +
+          item.top +
+          'px;left: ' +
+          item.left +
+          'px;opacity: '+
+          item.oc
+      "
+      :class="getColor('bg-red')"
+    ></view>
+    
+    <f-tabbar ref="tabbar"></f-tabbar>
+  </f-page>
+</template>
+
+<script>
+// #ifdef APP-PLUS
+const dom = uni.requireNativePlugin('dom')
+// #endif
+import global from "@/common/mixin/global.js"
+
+export default {
+  mixins: [ global ],
+  data() {
+    return {
+      headerTop: 40,
+      headerSize: 100,
+      topScrollRange: 0,
+      booked: false,
+      booking: false,
+      a_point: [],
+      header_book: false,
+      topOc: 1
+    }
+  },
+  onLoad() {
+    uni.hideTabBar({})
+    this.topScrollRange = this.getBox('649rpx-!status-!120rpx', 0)
+  },
+  onShow() {
+    this.$nextTick(() => {
+      this.$refs.tabbar.changeCurrent('home4')
+    })
+  },
+  onPullDownRefresh() {
+    console.log('refresh');
+    setTimeout(function() {
+      uni.stopPullDownRefresh();
+    }, 1000);
+  },
+  methods: {
+    bookOne(ref) {
+      if (this.booked || this.booking) {
+      } else {
+        this.booking = true
+        let key = this.a_point.length
+        dom.getComponentRect(this.$refs[ref], e => {
+          this.a_point.push({
+            top: e.size.top,
+            left: e.size.left + e.size.width,
+            oc: 1
+          })
+        })
+        setTimeout(() => {
+          dom.getComponentRect(this.$refs.header, e => {
+            this.a_point[key] = {
+              top: e.size.top + e.size.height/2,
+              left: e.size.left + e.size.width/2,
+              oc: 0
+            }
+          })
+          setTimeout(() => {
+            this.header_book = true
+          }, 1500)
+        }, 300)
+        setTimeout(() => {
+          this.booking = false
+          this.booked = true
+        }, 1000)
+      }
+    },
+    pageScroll(e) {
+      console.log(e)
+      let range = e.detail.scrollTop / this.topScrollRange
+      if (range <= 1) {
+        this.topOc = 1 - range
+        this.headerSize = (1 - range) * 20 + 80
+        this.headerTop = (1 - range) * 20 + 20
+      } else {
+        this.topOc = 0
+        this.headerSize = 80
+        this.headerTop = 20
+      }
+    },
+  },
+}
+</script>
+
+<style></style>

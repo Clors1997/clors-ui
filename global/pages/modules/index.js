@@ -62,5 +62,12 @@ module.exports = [
       "onReachBottomDistance": 100,
       "app-plus": {}
     }
+  },
+  {
+    "path": "pages/test/test",
+    "style": {
+      "disableScroll": true,
+      "app-plus": {}
+    }
   }
 ]

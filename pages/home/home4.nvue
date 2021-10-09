@@ -167,15 +167,16 @@
 
       <scroll-view
         :show-scrollbar="false"
-        class="w-100 flex-row align-center"
-        scroll-x="true"
-      >
+        class="w-100 flex-row align-start mt-4"
+        style="height: 199rpx;"
+        scroll-x="true">
         <view style="width: 60rpx;"></view>
         <view
-          class="flex-row align-center mr-4 rounded-24 px-2 overflow-hidden mt-4 shadow-normal"
-          style="width: 565rpx;height: 159rpx;"
+          class="flex-row align-center mr-4 rounded-24 px-2 overflow-hidden"
           :class="getColor('bg-white')"
-        >
+          elevation="4px"
+          style="width: 565rpx;height: 159rpx;"
+          :style="$store.getShadow(4)">
           <image
             class="rounded-24"
             src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic3.zhimg.com%2Fv2-02c4d251bb886f660b0b7ca4ea805f32_b.jpg&refer=http%3A%2F%2Fpic3.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1636013514&t=0605d2a43abe1886667d2bda3d4c3e72"
@@ -210,10 +211,178 @@
           ></f-button-sm>
         </view>
         <view
-          class="flex-row align-center rounded-24 px-2 overflow-hidden mt-4 shadow-normal"
-          style="width: 565rpx;height: 159rpx;"
+          class="flex-row align-center rounded-24 px-2 overflow-hidden"
           :class="getColor('bg-white')"
+          elevation="4px"
+          style="width: 565rpx;height: 159rpx;"
+          :style="$store.getShadow(4)"
         >
+          <image
+            class="rounded-24"
+            src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202004%2F06%2F20200406171329_xmccd.thumb.1000_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1636013566&t=1c2125070daf8d2fd9c74aa16eb3fb95"
+            :style="getBox('112rpx', 2)"
+          ></image>
+          <view class="flex-column flex-1 overflow-hidden ml-2">
+            <text
+              class="font-ss text-ellipsis"
+              style="opacity: 0.34;"
+              :class="getColor('text-dark')"
+              >Physician</text
+            >
+            <text
+              class="font-small text-ellipsis"
+              :class="getColor('text-dark')"
+              >Svyatoslav Taushev</text
+            >
+            <image
+              class="mt-1"
+              src="/static/app/start.png"
+              style="width: 112rpx;height: 16rpx"
+            ></image>
+          </view>
+          <f-button-sm
+            text="BOOK"
+            boxClass="p-3"
+            textSize="font-s"
+            bgColor="bg-light"
+          ></f-button-sm>
+        </view>
+        <view style="width: 60rpx;"></view>
+      </scroll-view>
+
+      <view class="w-100 px-6 mt-4">
+        <text class="font-small" :class="getColor('text-dark')"
+          >What are you doing today?</text
+        >
+      </view>
+
+      <view class="w-100 px-6 mt-2">
+        <view
+          class="flex-row overflow-hidden border-bottom"
+          style="width: 627rpx;height: 145rpx;"
+          :class="getColor('border-gray')"
+        >
+          <image
+            src="/static/app/brain@2x.png"
+            :style="getBox('71rpx', 2)"
+          ></image>
+          <view class="flex-column flex-1 overflow-hidden ml-4">
+            <text
+              class="font-ss text-ellipsis"
+              style="opacity: 0.34;"
+              :class="getColor('text-dark')"
+              >Doctors</text
+            >
+            <text
+              class="font-small text-ellipsis"
+              :class="getColor('text-dark')"
+              >Brain Checkout</text
+            >
+            <text
+              class="font-s text-ellipsis"
+              style="opacity: 0.34;"
+              :class="getColor('text-dark')"
+              >Have an appointment today</text
+            >
+          </view>
+          <f-button-sm
+            text="View"
+            boxClass="p-3"
+            textSize="font-s"
+            bgColor="bg-orange"
+          ></f-button-sm>
+        </view>
+        <view
+          class="flex-row overflow-hidden border-bottom mt-4"
+          style="width: 627rpx;height: 145rpx;"
+          :class="getColor('border-gray')"
+        >
+          <image
+            src="/static/app/brain@2x(1).png"
+            :style="getBox('71rpx', 2)"
+          ></image>
+          <view class="flex-column flex-1 overflow-hidden ml-4">
+            <text
+              class="font-ss text-ellipsis"
+              style="opacity: 0.34;"
+              :class="getColor('text-dark')"
+              >Pharmacy</text
+            >
+            <text
+              class="font-small text-ellipsis"
+              :class="getColor('text-dark')"
+              >Purchase Prescription</text
+            >
+            <text
+              class="font-s text-ellipsis"
+              style="opacity: 0.34;"
+              :class="getColor('text-dark')"
+              >Don't forget to bring the list with you</text
+            >
+          </view>
+          <f-button-sm
+            text="Set"
+            boxClass="p-3"
+            textSize="font-s"
+            bgColor="bg-light"
+          ></f-button-sm>
+        </view>
+      </view>
+
+      <view class="w-100 px-6 mt-6">
+        <text class="font-small" :class="getColor('text-dark')"
+          >Visit a Specialists</text
+        >
+      </view>
+
+      <scroll-view
+        :show-scrollbar="false"
+        class="w-100 flex-row align-start mt-4"
+        style="height: 199rpx;"
+        scroll-x="true">
+        <view style="width: 60rpx;"></view>
+        <view
+          class="flex-row align-center mr-4 rounded-24 px-2 overflow-hidden"
+          :class="getColor('bg-white')"
+          elevation="4px"
+          style="width: 565rpx;height: 159rpx;"
+          :style="$store.getShadow(4)">
+          <image
+            class="rounded-24"
+            src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic3.zhimg.com%2Fv2-02c4d251bb886f660b0b7ca4ea805f32_b.jpg&refer=http%3A%2F%2Fpic3.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1636013514&t=0605d2a43abe1886667d2bda3d4c3e72"
+            :style="getBox('112rpx', 2)"
+          ></image>
+          <view class="flex-column flex-1 overflow-hidden ml-2">
+            <text
+              class="font-ss text-ellipsis"
+              style="opacity: 0.34;"
+              :class="getColor('text-dark')"
+              >Physician</text
+            >
+            <text
+              class="font-small text-ellipsis"
+              :class="getColor('text-dark')"
+              >Svyatoslav Taushev</text
+            >
+            <image
+              class="mt-1"
+              src="/static/app/start.png"
+              style="width: 112rpx;height: 16rpx"
+            ></image>
+          </view>
+          <f-button-sm
+            text="BOOK"
+            boxClass="p-3"
+            textSize="font-s"
+            bgColor="bg-light"
+          ></f-button-sm>
+        </view>
+        <view
+          class="flex-row align-center mr-4 rounded-24 px-2 overflow-hidden"
+          :class="getColor('bg-white')"
+          elevation="4px"
+          style="width: 565rpx;height: 159rpx;"
+          :style="$store.getShadow(4)">
           <image
             class="rounded-24"
             src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202004%2F06%2F20200406171329_xmccd.thumb.1000_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1636013566&t=1c2125070daf8d2fd9c74aa16eb3fb95"
@@ -334,15 +503,16 @@
 
       <scroll-view
         :show-scrollbar="false"
-        class="w-100 flex-row align-center"
-        scroll-x="true"
-      >
+        class="w-100 flex-row align-start mt-4"
+        style="height: 199rpx;"
+        scroll-x="true">
         <view style="width: 60rpx;"></view>
         <view
-          class="flex-row align-center mr-4 rounded-24 px-2 overflow-hidden mt-4 shadow-normal"
-          style="width: 565rpx;height: 159rpx;"
+          class="flex-row align-center mr-4 rounded-24 px-2 overflow-hidden"
           :class="getColor('bg-white')"
-        >
+          elevation="4px"
+          style="width: 565rpx;height: 159rpx;"
+          :style="$store.getShadow(4)">
           <image
             class="rounded-24"
             src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic3.zhimg.com%2Fv2-02c4d251bb886f660b0b7ca4ea805f32_b.jpg&refer=http%3A%2F%2Fpic3.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1636013514&t=0605d2a43abe1886667d2bda3d4c3e72"
@@ -374,10 +544,11 @@
           ></f-button-sm>
         </view>
         <view
-          class="flex-row align-center rounded-24 px-2 overflow-hidden mt-4 shadow-normal"
-          style="width: 565rpx;height: 159rpx;"
+          class="flex-row align-center mr-4 rounded-24 px-2 overflow-hidden"
           :class="getColor('bg-white')"
-        >
+          elevation="4px"
+          style="width: 565rpx;height: 159rpx;"
+          :style="$store.getShadow(4)">
           <image
             class="rounded-24"
             src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202004%2F06%2F20200406171329_xmccd.thumb.1000_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1636013566&t=1c2125070daf8d2fd9c74aa16eb3fb95"
@@ -410,170 +581,7 @@
         </view>
         <view style="width: 60rpx;"></view>
       </scroll-view>
-
-      <view class="w-100 px-6 mt-4">
-        <text class="font-small" :class="getColor('text-dark')"
-          >What are you doing today?</text
-        >
-      </view>
-
-      <view class="w-100 px-6 mt-6">
-        <view
-          class="flex-row overflow-hidden border-bottom"
-          style="width: 627rpx;height: 145rpx;"
-          :class="getColor('border-gray')"
-        >
-          <image
-            src="/static/app/brain@2x.png"
-            :style="getBox('71rpx', 2)"
-          ></image>
-          <view class="flex-column flex-1 overflow-hidden ml-4">
-            <text
-              class="font-ss text-ellipsis"
-              style="opacity: 0.34;"
-              :class="getColor('text-dark')"
-              >Doctors</text
-            >
-            <text
-              class="font-small text-ellipsis"
-              :class="getColor('text-dark')"
-              >Brain Checkout</text
-            >
-            <text
-              class="font-s text-ellipsis"
-              style="opacity: 0.34;"
-              :class="getColor('text-dark')"
-              >Have an appointment today</text
-            >
-          </view>
-          <f-button-sm
-            text="View"
-            boxClass="p-3"
-            textSize="font-s"
-            bgColor="bg-orange"
-          ></f-button-sm>
-        </view>
-        <view
-          class="flex-row overflow-hidden border-bottom mt-4"
-          style="width: 627rpx;height: 145rpx;"
-          :class="getColor('border-gray')"
-        >
-          <image
-            src="/static/app/brain@2x(1).png"
-            :style="getBox('71rpx', 2)"
-          ></image>
-          <view class="flex-column flex-1 overflow-hidden ml-4">
-            <text
-              class="font-ss text-ellipsis"
-              style="opacity: 0.34;"
-              :class="getColor('text-dark')"
-              >Pharmacy</text
-            >
-            <text
-              class="font-small text-ellipsis"
-              :class="getColor('text-dark')"
-              >Purchase Prescription</text
-            >
-            <text
-              class="font-s text-ellipsis"
-              style="opacity: 0.34;"
-              :class="getColor('text-dark')"
-              >Don't forget to bring the list with you</text
-            >
-          </view>
-          <f-button-sm
-            text="Set"
-            boxClass="p-3"
-            textSize="font-s"
-            bgColor="bg-light"
-          ></f-button-sm>
-        </view>
-      </view>
-
-      <view class="w-100 px-6 mt-6">
-        <text class="font-small" :class="getColor('text-dark')"
-          >Visit a Specialists</text
-        >
-      </view>
-
-      <scroll-view
-        :show-scrollbar="false"
-        class="w-100 flex-row align-center"
-        scroll-x="true"
-      >
-        <view style="width: 60rpx;"></view>
-        <view
-          class="flex-row align-center mr-4 rounded-24 px-2 overflow-hidden mt-4 shadow-normal"
-          style="width: 565rpx;height: 159rpx;"
-          :class="getColor('bg-white')"
-        >
-          <image
-            class="rounded-24"
-            src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic3.zhimg.com%2Fv2-02c4d251bb886f660b0b7ca4ea805f32_b.jpg&refer=http%3A%2F%2Fpic3.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1636013514&t=0605d2a43abe1886667d2bda3d4c3e72"
-            :style="getBox('112rpx', 2)"
-          ></image>
-          <view class="flex-column flex-1 overflow-hidden ml-2">
-            <text
-              class="font-ss text-ellipsis"
-              style="opacity: 0.34;"
-              :class="getColor('text-dark')"
-              >Physician</text
-            >
-            <text
-              class="font-small text-ellipsis"
-              :class="getColor('text-dark')"
-              >Svyatoslav Taushev</text
-            >
-            <image
-              class="mt-1"
-              src="/static/app/start.png"
-              style="width: 112rpx;height: 16rpx"
-            ></image>
-          </view>
-          <f-button-sm
-            text="BOOK"
-            boxClass="p-3"
-            textSize="font-s"
-            bgColor="bg-light"
-          ></f-button-sm>
-        </view>
-        <view
-          class="flex-row align-center rounded-24 px-2 overflow-hidden mt-4 shadow-normal"
-          style="width: 565rpx;height: 159rpx;"
-          :class="getColor('bg-white')"
-        >
-          <image
-            class="rounded-24"
-            src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202004%2F06%2F20200406171329_xmccd.thumb.1000_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1636013566&t=1c2125070daf8d2fd9c74aa16eb3fb95"
-            :style="getBox('112rpx', 2)"
-          ></image>
-          <view class="flex-column flex-1 overflow-hidden ml-2">
-            <text
-              class="font-ss text-ellipsis"
-              style="opacity: 0.34;"
-              :class="getColor('text-dark')"
-              >Physician</text
-            >
-            <text
-              class="font-small text-ellipsis"
-              :class="getColor('text-dark')"
-              >Svyatoslav Taushev</text
-            >
-            <image
-              class="mt-1"
-              src="/static/app/start.png"
-              style="width: 112rpx;height: 16rpx"
-            ></image>
-          </view>
-          <f-button-sm
-            text="BOOK"
-            boxClass="p-3"
-            textSize="font-s"
-            bgColor="bg-light"
-          ></f-button-sm>
-        </view>
-        <view style="width: 60rpx;"></view>
-      </scroll-view>
+      <view class="w-100" style="height: 180rpx;"></view>
     </scroll-view>
     <view
       class="position-fixed rounded-circle transition-top-left duration-9"

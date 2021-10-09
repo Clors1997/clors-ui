@@ -1608,6 +1608,7 @@ var map = {
 	"./getBox.js": 22,
 	"./getColor.js": 23,
 	"./getIcon.js": 24,
+	"./getShadow.js": 45,
 	"./http.js": 25,
 	"./switch.js": 39,
 	"./to.js": 40
@@ -1917,6 +1918,17 @@ eval("/* WEBPACK VAR INJECTION */(function(__f__) {Object.defineProperty(exports
 
 "use strict";
 eval("Object.defineProperty(exports, \"__esModule\", { value: true });exports.default = void 0;var _default = {\n  \"rc\": {\n    \"type\": \"[object Number]\" },\n\n  \"message\": {\n    \"type\": \"[object String]\" } };exports.default = _default;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVuaS1hcHA6Ly8vY29tbW9uL2FwaS9nbG9iYWxfdHlwZS5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoic0dBQWU7QUFDYixRQUFNO0FBQ0osWUFBUSxpQkFESixFQURPOztBQUliLGFBQVc7QUFDVCxZQUFRLGlCQURDLEVBSkUsRSIsImZpbGUiOiI0NC5qcyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBkZWZhdWx0IHtcbiAgXCJyY1wiOiB7XG4gICAgXCJ0eXBlXCI6IFwiW29iamVjdCBOdW1iZXJdXCJcbiAgfSxcbiAgXCJtZXNzYWdlXCI6IHtcbiAgICBcInR5cGVcIjogXCJbb2JqZWN0IFN0cmluZ11cIlxuICB9XG59Il0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///44\n");
+
+/***/ }),
+/* 45 */
+/*!****************************************************!*\
+  !*** D:/clors/clors-ui/global/common/getShadow.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("Object.defineProperty(exports, \"__esModule\", { value: true });exports.default = _default; /**\r\n                                                                                                        * 獲取兩端統一， boxshadow\r\n                                                                                                        */\nfunction _default(size) {\n  return \"box-shadow: 0px \" + size + \"px \" + size + \"px rgba(0, 0, 0, 0.2);\";\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVuaS1hcHA6Ly8vZ2xvYmFsL2NvbW1vbi9nZXRTaGFkb3cuanMiXSwibmFtZXMiOlsic2l6ZSJdLCJtYXBwaW5ncyI6IjBGQUFBOzs7QUFHZSxrQkFBU0EsSUFBVCxFQUFlO0FBQzVCLFNBQU8scUJBQW1CQSxJQUFuQixHQUF3QixLQUF4QixHQUE4QkEsSUFBOUIsR0FBbUMsd0JBQTFDO0FBQ0QiLCJmaWxlIjoiNDUuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcclxuICog542y5Y+W5YWp56uv57Wx5LiA77yMIGJveHNoYWRvd1xyXG4gKi9cclxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24oc2l6ZSkge1xyXG4gIHJldHVybiBcImJveC1zaGFkb3c6IDBweCBcIitzaXplK1wicHggXCIrc2l6ZStcInB4IHJnYmEoMCwgMCwgMCwgMC4yKTtcIlxyXG59Il0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///45\n");
 
 /***/ })
 ],[[0,"app-config"]]]);

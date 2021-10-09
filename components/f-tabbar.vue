@@ -1,8 +1,10 @@
 <template>
   <view
-    class="position-fixed rounded-circle flex-row align-stretch justify-around shadow-box"
+    class="position-fixed rounded-circle flex-row align-stretch justify-around overflow-hidden"
     :class="$store.getColor('bg-white')"
-    style="width: 700rpx;height: 140rpx;bottom: 30rpx;left: 25rpx;">
+    elevation="4px"
+    style="width: 700rpx;height: 140rpx;bottom: 30rpx;left: 25rpx;"
+    :style="$store.getShadow(4)">
     <view
       class="position-absolute rounded-circle top-0 transition-left duration-3"
       :class="$store.getColor('bg-gray')"

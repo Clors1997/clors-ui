@@ -44,7 +44,9 @@
             "ios" : {},
             /* SDK配置 */
             "sdkConfigs" : {
-                "ad" : {}
+                "ad" : {},
+                "geolocation" : {},
+                "payment" : {}
             },
             "icons" : {
                 "android" : {
@@ -80,6 +82,22 @@
             },
             "splashscreen" : {
                 "androidStyle" : "common"
+            }
+        },
+        "nativePlugins" : {
+            "sn-shadow" : {
+                "__plugin_info__" : {
+                    "name" : "Android 阴影View",
+                    "description" : "提供Android 阴影View",
+                    "platforms" : "Android",
+                    "url" : "https://ext.dcloud.net.cn/plugin?id=3665",
+                    "android_package_name" : "uni.UNIC2BFF2D",
+                    "ios_bundle_id" : "",
+                    "isCloud" : true,
+                    "bought" : 1,
+                    "pid" : "3665",
+                    "parameters" : {}
+                }
             }
         }
     },

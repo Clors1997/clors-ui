@@ -667,7 +667,15 @@ export default {
       } else {
         this.booking = true
         let key = this.a_point.length
-        console.log(this.$refs[ref])
+        // #ifdef H5
+        let e = this.$refs[ref].$el.getBoundingClientRect()
+        this.a_point.push({
+          top: e.top,
+          left: e.left + e.width,
+          oc: 1
+        })
+        // #endif
+        // #ifndef H5
         dom.getComponentRect(this.$refs[ref], e => {
           this.a_point.push({
             top: e.size.top,
@@ -675,7 +683,18 @@ export default {
             oc: 1
           })
         })
+        // #endif
+        
         setTimeout(() => {
+          // #ifdef H5
+          let e = this.$refs.header.$el.getBoundingClientRect()
+          this.a_point[key] = {
+            top: e.top + e.height/2,
+            left: e.left + e.width/2,
+            oc: 0
+          }
+          // #endif
+          // #ifndef H5
           dom.getComponentRect(this.$refs.header, e => {
             this.a_point[key] = {
               top: e.size.top + e.size.height/2,
@@ -683,6 +702,7 @@ export default {
               oc: 0
             }
           })
+          // #endif
           setTimeout(() => {
             this.header_book = true
           }, 1500)

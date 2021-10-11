@@ -170,10 +170,10 @@
 
       <scroll-view
         :show-scrollbar="false"
-        class="w-100 mt-4 hide-bar"
+        class="w-100 mt-4 flex-row align-start"
         style="height: 199rpx;"
         scroll-x="true">
-        <view class="flex-row align-start hide-bar">
+        <view class="flex-row align-start" style="height: 199rpx;">
           <view style="width: 60rpx;"></view>
           <view
             class="flex-row align-center mr-4 rounded-24 px-2 overflow-hidden"
@@ -341,10 +341,10 @@
 
       <scroll-view
         :show-scrollbar="false"
-        class="w-100 mt-4"
+        class="w-100 mt-4 flex-row align-start"
         style="height: 199rpx;"
         scroll-x="true">
-        <view class="flex-row align-start">
+        <view class="flex-row align-start" style="height: 199rpx;">
           <view style="width: 60rpx;"></view>
           <view
             class="flex-row align-center mr-4 rounded-24 px-2 overflow-hidden"
@@ -509,10 +509,10 @@
 
       <scroll-view
         :show-scrollbar="false"
-        class="w-100 mt-4"
+        class="w-100 mt-4 flex-row align-start"
         style="height: 199rpx;"
         scroll-x="true">
-        <view class="flex-row align-start">
+        <view class="flex-row align-start" style="height: 199rpx;">
           <view style="width: 60rpx;"></view>
           <view
             class="flex-row align-center mr-4 rounded-24 px-2 overflow-hidden"
@@ -612,13 +612,18 @@
 </template>
 
 <script>
-// #ifdef APP-PLUS
+// #ifdef APP-PLUS-NVUE
 const dom = uni.requireNativePlugin('dom')
 // #endif
+// #ifdef H5
+const dom = {}
+// #endif
+
 import global from "@/common/mixin/global.js"
+import getRect from "@/common/mixin/getRect.js"
 
 export default {
-  mixins: [ global ],
+  mixins: [ global, getRect ],
   data() {
     return {
       headerTop: 40,
@@ -662,47 +667,26 @@ export default {
           console.log(err, '请求错误或者类型错误')
         })
     },
-    bookOne(ref) {
+    async bookOne(ref) {
       if (this.booked || this.booking) {
       } else {
         this.booking = true
         let key = this.a_point.length
-        // #ifdef H5
-        let e = this.$refs[ref].$el.getBoundingClientRect()
+        let e = await this.getRect(this.$refs[ref], dom)
+        console.log(e)
         this.a_point.push({
           top: e.top,
           left: e.left + e.width,
           oc: 1
         })
-        // #endif
-        // #ifndef H5
-        dom.getComponentRect(this.$refs[ref], e => {
-          this.a_point.push({
-            top: e.size.top,
-            left: e.size.left + e.size.width,
-            oc: 1
-          })
-        })
-        // #endif
         
-        setTimeout(() => {
-          // #ifdef H5
-          let e = this.$refs.header.$el.getBoundingClientRect()
+        setTimeout(async() => {
+          let e = await this.getRect(this.$refs.header, dom)
           this.a_point[key] = {
             top: e.top + e.height/2,
             left: e.left + e.width/2,
             oc: 0
           }
-          // #endif
-          // #ifndef H5
-          dom.getComponentRect(this.$refs.header, e => {
-            this.a_point[key] = {
-              top: e.size.top + e.size.height/2,
-              left: e.size.left + e.size.width/2,
-              oc: 0
-            }
-          })
-          // #endif
           setTimeout(() => {
             this.header_book = true
           }, 1500)

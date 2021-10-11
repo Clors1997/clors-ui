@@ -3,6 +3,18 @@
 
 /* 項目全局樣式 */
 
+/* #ifdef H5 */
+.z-100 {
+  z-index: 100;
+}
+.z-200 {
+  z-index: 100;
+}
+.uni-scroll-view-content {
+  transform: none !important;
+}
+/* #endif */
+
 /* icon */
 /* #ifndef APP-NVUE */
 @font-face {
@@ -110,4 +122,5 @@
 
 .border-2 {
   border: 2rpx;
+  border-style: solid;
 }

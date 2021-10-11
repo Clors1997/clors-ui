@@ -1,11 +1,10 @@
 <template>
   <view class="flex-column align-center">
-    <view class="flex-row justify-between px-8 w-100">
+    <view @click="focusBox" class="flex-row justify-between px-8 w-100 z-100">
       <view
         v-for="key in 4"
         :key="key"
-        @click="focusBox(key)"
-        class="rounded-38 flex-center"
+        class="rounded-38 flex-center "
         :style="$store.getBox('125rpx', 2)"
         :class="[
           ...$store.getColor(
@@ -80,7 +79,7 @@
           //判断是否最后一个
           if (key == 4) {
             this.now_code_key = 0
-            this.$refs['input' + this.code_key][0].blur()
+            this.blurkey(this.code_key)
             this.can_focus_flag = false
           } else {
             this.now_code_key = this.code_key
@@ -89,7 +88,7 @@
               setTimeout(() => {
                 console.log('auto focus')
                 this.pre = 0
-                this.$refs['input' + this.code_key][0].focus()
+                this.focuskey(this.code_key)
               }, 20)
             })
           }
@@ -101,14 +100,30 @@
           this.$nextTick(function() {
             setTimeout(() => {
               this.pre = 0
-              this.$refs['input' + this.code_key][0].focus()
+              this.focuskey(this.code_key)
             }, 20)
           })
         }
       },
-      focusBox(key) {
+      focuskey(key) {
+        // #ifdef H5
+        this.$refs['input' + key][0].focus = true
+        // #endif
+        // #ifndef H5
+        this.$refs['input' + key][0].focus()
+        // #endif
+      },
+      blurkey(key) {
+        // #ifdef H5
+        this.$refs['input' + key][0].focus = false
+        // #endif
+        // #ifndef H5
+        this.$refs['input' + key][0].blur()
+        // #endif
+      },
+      focusBox() {
         this.now_code_key = this.code_key
-        this.$refs['input' + this.code_key][0].focus()
+        this.focuskey(this.code_key)
       },
       inputBlur() {
         this.now_code_key = 0
